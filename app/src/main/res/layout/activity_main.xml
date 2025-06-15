@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:fitsSystemWindows="true"
+    android:padding="16dp">
+
+    <!-- Month Spinner -->
+    <TextView
+        android:id="@+id/labelMonth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Month:"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="?attr/actionBarSize" />
+
+    <Spinner
+        android:id="@+id/spinnerMonth"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/labelMonth"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="4dp" />
+
+    <!-- Units Input -->
+    <TextView
+        android:id="@+id/labelUnits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Units Used (kWh):"
+        app:layout_constraintTop_toBottomOf="@id/spinnerMonth"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/editUnits"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="e.g., 350"
+        app:layout_constraintTop_toBottomOf="@id/labelUnits"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="4dp" />
+
+    <!-- Rebate Selection -->
+    <TextView
+        android:id="@+id/labelRebate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Rebate:"
+        app:layout_constraintTop_toBottomOf="@id/editUnits"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupRebate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/labelRebate"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="4dp">
+
+        <RadioButton android:id="@+id/rebate0" android:text="0%" />
+        <RadioButton android:id="@+id/rebate1" android:text="1%" />
+        <RadioButton android:id="@+id/rebate2" android:text="2%" />
+        <RadioButton android:id="@+id/rebate3" android:text="3%" />
+        <RadioButton android:id="@+id/rebate4" android:text="4%" />
+        <RadioButton android:id="@+id/rebate5" android:text="5%" />
+    </RadioGroup>
+
+    <!-- Calculate Button -->
+    <Button
+        android:id="@+id/btnCalculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calculate"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/radioGroupRebate"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/btnViewHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View History"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/txtFinalCost"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/btnAbout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="About"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/btnViewHistory"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <!-- Output: Total Charges -->
+    <TextView
+        android:id="@+id/txtTotalCharges"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Charges: RM 0.00"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/btnCalculate"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp" />
+
+    <!-- Output: Final Cost -->
+    <TextView
+        android:id="@+id/txtFinalCost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Final Cost: RM 0.00"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/txtTotalCharges"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
